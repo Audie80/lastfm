@@ -1,13 +1,12 @@
 <template>
     <div class="container mt-5">
         <div class="card-columns">    
-            <div class="card p-3 m-2 bg-light border-dark text-center"
+            <div class="card px-3 pt-3 m-2 bg-light border-secondary text-center"
             v-for="(searchResult, index) of searchResults" :key="index"
             v-show="searchResult.mbid">
                 <img :src="searchResult.image[3]['#text']" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ searchResult.name }}</h5>
-                    <a :href="searchResult.url">Page Artiste LastFM</a>
                     <button class="btn btn-primary" @click="$router.push({ name: 'Artist', params: { mbid: searchResult.mbid }})">Plus d'infos</button>
                 </div>
             </div>

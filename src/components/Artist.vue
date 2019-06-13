@@ -1,27 +1,27 @@
 <template>
-    <div>
-        <button class="btn btn-primary my-3" @click="$router.push({ name: 'Accueil' })">Retour à la recherche</button>
-                
-        <h1>{{ infosArtistResults.name }}</h1>
-
-        <div class="text-justify"
-        v-html="infosArtistResults.bio.summary"></div>
-        <div class="card-columns"
-        v-if="['Artist'].includes($route.name)">    
-            <div class="card p-3 m-2 bg-light border-dark text-center"
-            v-for="(topAlbumsResult, index) of topAlbumsResults" :key="index">
+    <div class="bg-dark p-4">
+        <button class="btn btn-primary mb-4" @click="$router.push({ name: 'Accueil' })">Retour à la recherche</button>
+        <div class="row mx-auto">        
+            <h1 class="text-light px-4">{{ infosArtistResults.name }}</h1>
+            <div class="text-justify text-light px-4"
+            v-html="infosArtistResults.bio.summary"></div>
+        </div>
+        <div class="card-columns mt-4"
+        v-if="$route.name=='Artist'">    
+            <div class="card px-3 pt-3 bg-light border-secondary text-center shadow-sm rounded"
+            v-for="(topAlbumsResult, index) of topAlbumsResults" :key="index"
+            v-show="topAlbumsResult.mbid">
                 <img :src="topAlbumsResult.image[3]['#text']" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ topAlbumsResult.name }}</h5>
-                    <a :href="topAlbumsResult.url">Page Album LastFM</a>
-                    <button class="btn btn-primary" @click="$router.push({ name: 'Album', params: { nameAlbum: topAlbumsResult.name }})">Plus d'infos</button>
+                    <button class="btn btn-primary" @click="$router.push({ name: 'Album', params: { mbidAlbum: topAlbumsResult.mbid }})">Plus d'infos</button>
                 </div>
             </div>
         </div>
 
         <div
-        v-else-if="['Album'].includes($route.name)">
-            <Album />
+        v-else-if="$route.name=='Album'">
+            <router-view />
         </div>
     </div>
 </template>
