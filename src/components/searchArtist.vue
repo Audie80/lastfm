@@ -1,17 +1,13 @@
 <template>
-    <div>
-        <form @submit.prevent=search>
-            <label for="inputSearch">Recherchez un artiste :</label>
-            <br />
-            <button>Lycos !</button>
-            <input type="text" id="inputSearch" v-model.trim="artistName" />
+    <div class="mt-5">
+        <form class="form-inline" @submit.prevent="$router.push({ name: 'SearchResultsArtist', params: { inputSearch: inputSearch } }); inputSearch = ''">
+            <div class="form-group">
+                <label for="inputSearch">Recherchez un artiste : </label>
+                <input class="form-control ml-2" type="text" id="inputSearch" v-model.trim="inputSearch" />
+            </div>
+            <button class="btn btn-primary ml-2">Lycos !</button>
         </form>
-        <!-- <ul>
-            <li
-            v-for="(searchResult, index) of searchResults" :key="index">{{ searchResult.name }}
-            </li>
-        </ul>
-        <div>{{ searchResults.results.artistmatches.artist }}</div> -->
+        <router-view />
     </div>
 </template>
 
@@ -20,34 +16,7 @@
         name: 'searchArtist',
         data: function () {
             return {
-                artistName: '',
-                searchResults: null
-            }
-        },
-        props: {
-            apiKey: String,
-            rootUrl: String
-        },
-        computed: {
-            url: function () {
-                return `${this.rootUrl}?method=artist.search&artist=${this.artistName}&api_key=${this.apiKey}&format=json`
-            }
-        },
-        watch: {
-            searchResults: function () {
-                this.$emit('sendResult', this.searchResults)
-            }
-        },
-        methods: {
-            search: async function () {
-                try {
-                    let response = await fetch(this.url)
-                    let result = await response.json()
-                    this.searchResults = result.results.artistmatches.artist
-                    this.artistName = ''
-                } catch(err) {
-                    console.log(err)
-                }
+                inputSearch: ''
             }
         }
     }
