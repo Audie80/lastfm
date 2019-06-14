@@ -9,14 +9,15 @@
         </div>
         <div class="row justify-content-center"
          v-else >
-            <iframe width="560" height="315" :src="`https://www.youtube.com/embed/${searchVideoYouTube}`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" :src="`https://www.youtube.com/embed/${searchVideoYouTube}?autoplay=1`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="row justify-content-center mt-2">
-            <ul>
-                <li class="text-light"
+            <ul class="list-group">
+                <li class="list-group-item m-1 p-0 pr-3"
                  v-for="(track, index) of tabTracks" :key="index" >
+                    <!-- <img style="cursor=wait" src="https://upload.wikimedia.org/wikipedia/commons/6/67/Play_icon.png" @click="trackName = track.name; videoYouTube();" > -->
+                    <button class="btn" @click="trackName = track.name; videoYouTube();" ><img class="play-icon" src="../assets/play_icon.png"></button>
                     {{ track.name }}
-                    <button @click="trackName = track.name; videoYouTube();" >></button>
                 </li>
             </ul>
         </div>
@@ -27,7 +28,8 @@
     export default {
         name: 'Album',
         props: {
-            mbidAlbum: String
+            mbidAlbum: String,
+            artistName: String
         },
         data: function () {
             return {
@@ -44,7 +46,7 @@
                 return this.searchAlbumResults.tracks.track
             },
             urlVideoYouTube: function () {
-                return `${rootUrlYouTube}/search?part=snippet&maxResults=5&order=relevance&q=${this.trackName}&relevanceLanguage=fr&type=video&videoDefinition=any&videoEmbeddable=true&videoSyndicated=true&videoType=any&key=${apiKeyYouTube}`
+                return `${rootUrlYouTube}/search?part=snippet&maxResults=5&order=relevance&q=${this.artistName}+${this.trackName}&relevanceLanguage=fr&type=video&videoDefinition=any&videoEmbeddable=true&videoSyndicated=true&videoType=any&key=${apiKeyYouTube}`
             }
         },
         created () {
@@ -72,3 +74,9 @@
         }
     }
 </script>
+
+<style>
+    .play-icon {
+        width: 3rem;
+    }
+</style>

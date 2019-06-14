@@ -14,7 +14,7 @@
                 <img :src="topAlbumsResult.image[3]['#text']" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ topAlbumsResult.name }}</h5>
-                    <button class="btn btn-primary" @click="$router.push({ name: 'Album', params: { mbidAlbum: topAlbumsResult.mbid }})">Plus d'infos</button>
+                    <button class="btn btn-primary" @click="$router.push({ name: 'Album', params: { mbidAlbum: topAlbumsResult.mbid, artistName: infosArtistResults.name }})">Plus d'infos</button>
                 </div>
             </div>
         </div>
