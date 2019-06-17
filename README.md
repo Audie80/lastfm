@@ -1,4 +1,4 @@
-# lastfm
+# Application de recherche d'artistes et de musiques
 
 ## Project setup
 ```
@@ -27,3 +27,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE4MDk2MDQwMzhdfQ==
+-->
