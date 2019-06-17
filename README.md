@@ -2,7 +2,7 @@
 
 ## Technos
 ```
-Vue.JS
+Vue.JS avec routeur
 CLI (babel intégré)
 Bootstrap
 ```
@@ -16,9 +16,10 @@ Les copier sur le fichier Main.js dans les variables apiKey et apiKeyYouTube.
 Recherche d'artistes sur l'API LastFM
 Affichage des infos de l'artiste sélectionné
 Affichage des albums de l'artiste
-Affichage de la tracklist
+Affichage de la tracklist de l'album sélectionné
+Lancement de la vidéo YouTube de la chanson sélectionnée
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxNTUzNDUwNF19
+eyJoaXN0b3J5IjpbMjk2MDU4MDAyXX0=
 -->
