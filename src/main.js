@@ -8,9 +8,9 @@ import './assets/scss/style.scss' //Il faut donc importer un fichier scss où se
 
 Vue.config.productionTip = false;
 
-window.apiKey = 'ce293d59001221f0545c8848c71d7ec6' //déclare des variables globales, accessibles dans toute l'application
+window.apiKey = 'Insert your LastFM API Key here' //déclare des variables globales, accessibles dans toute l'application
 window.rootUrl = 'http://ws.audioscrobbler.com/2.0/'
-window.apiKeyYouTube = 'AIzaSyAnRWx-r6eMDreP82x-29Ld2g-8p0q_nHs'
+window.apiKeyYouTube = 'Insert your YouTube API Key here'
 window.rootUrlYouTube = 'https://www.googleapis.com/youtube/v3'
 
 new Vue({
