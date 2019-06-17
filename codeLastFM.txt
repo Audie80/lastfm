@@ -1,0 +1,4 @@
+Application name 	LastFM
+API key 	ce293d59001221f0545c8848c71d7ec6
+Shared secret 	5508f416960b2426cbf4176a6d14257b
+Registered to 	Audie81

@@ -1,23 +1,41 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+import SearchArtist from './components/searchArtist.vue'
+import SearchResultsArtist from './components/searchResultsArtist.vue'
+import Artist from './components/Artist.vue'
+import Album from './components/Album.vue'
+
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
+      name: 'Accueil',
       path: '/',
-      name: 'home',
-      component: Home,
+      component: SearchArtist,
+      children: [
+        {
+          name: 'SearchResultsArtist',
+          path: ':inputSearch',
+          props: true,
+          component: SearchResultsArtist
+        }
+      ]
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    },
-  ],
+      name: 'Artist',
+      path: '/artist/:mbid',
+      props: true,
+      component: Artist,
+      children: [
+        {
+          name: 'Album',
+          path: ':nameAlbum',
+          props: true,
+          component: Album
+        }
+      ]
+    }
+  ]
 });
