@@ -1,6 +1,9 @@
 <template>
-    <div class="bg-dark p-4">
+    <div class="bg-dark p-5"
+    v-if="infosArtistResults">
         <button class="btn btn-primary mb-4" @click="$router.push({ name: 'Accueil' })">Retour à la recherche</button>
+        <button class="btn btn-primary mb-4 ml-1" @click="$router.push({ name: 'Artist' })"
+        v-if="$route.name=='Album'">Retour aux albums de {{ infosArtistResults.name }}</button>
         <div class="row mx-auto">        
             <h1 class="text-light px-4">{{ infosArtistResults.name }}</h1>
             <div class="text-justify text-light px-4"
@@ -14,7 +17,7 @@
                 <img :src="topAlbumsResult.image[3]['#text']" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ topAlbumsResult.name }}</h5>
-                    <button class="btn btn-primary" @click="$router.push({ name: 'Album', params: { mbidAlbum: topAlbumsResult.mbid, artistName: infosArtistResults.name }})">Plus d'infos</button>
+                    <button class="btn btn-primary" @click="$router.push({ name: 'Album', params: { mbidAlbum: topAlbumsResult.mbid, artistName: infosArtistResults.name, nameAlbum: topAlbumsResult.name }})">Plus d'infos</button>
                 </div>
             </div>
         </div>

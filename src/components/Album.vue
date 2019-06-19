@@ -1,5 +1,6 @@
 <template>
-    <div class="container mt-2">
+    <div class="container mt-2"
+    v-if="searchAlbumResults">
         <div class="row justify-content-center">
             <h2 class="text-light text-center">{{ searchAlbumResults.name }}</h2>
         </div>
@@ -15,9 +16,8 @@
             <ul class="list-group">
                 <li class="list-group-item m-1 p-0 pr-3"
                  v-for="(track, index) of tabTracks" :key="index" >
-                    <!-- <img style="cursor=wait" src="https://upload.wikimedia.org/wikipedia/commons/6/67/Play_icon.png" @click="trackName = track.name; videoYouTube();" > -->
-                    <button class="btn" @click="trackName = track.name; videoYouTube();" ><img class="play-icon" src="../assets/play_icon.png"></button>
-                    {{ track.name }}
+                    <button class="btn" @click="trackName = track.name; videoYouTube();" ><font-awesome-icon icon="play-circle" size="3x" /></button>
+                    {{ track.name }} - {{ track.duration }} s
                 </li>
             </ul>
         </div>
@@ -29,7 +29,8 @@
         name: 'Album',
         props: {
             mbidAlbum: String,
-            artistName: String
+            artistName: String,
+            nameAlbum: String
         },
         data: function () {
             return {

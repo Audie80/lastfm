@@ -5,6 +5,12 @@ import './assets/scss/style.scss' //Il faut donc importer un fichier scss où se
 //import 'bootstrap/scss/bootstrap-reboot.scss' //Ne fonctionne pas car les variables scss ne sont pas partagées
 //import 'bootstrap/scss/bootstrap-grid.scss'
 //import 'bootstrap/scss/_forms.scss'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faPlayCircle);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 
