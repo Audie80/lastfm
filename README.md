@@ -19,7 +19,9 @@ Affichage des albums de l'artiste
 Affichage de la tracklist de l'album sélectionné
 Lancement de la vidéo YouTube de la chanson sélectionnée
 
-
+## Lancement
+```
+npm run serve
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMjk2MDU4MDAyXX0=
 -->

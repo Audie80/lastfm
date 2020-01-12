@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import SearchArtist from './components/searchArtist.vue'
-import SearchResultsArtist from './components/searchResultsArtist.vue'
-import Artist from './components/Artist.vue'
-import Album from './components/Album.vue'
+import SearchArtist from './components/searchArtist.vue';
+import SearchResultsArtist from './components/searchResultsArtist.vue';
+import Artist from './components/Artist.vue';
+import Album from './components/Album.vue';
 
 
 Vue.use(Router);
@@ -19,9 +19,9 @@ export default new Router({
           name: 'SearchResultsArtist',
           path: ':inputSearch',
           props: true,
-          component: SearchResultsArtist
-        }
-      ]
+          component: SearchResultsArtist,
+        },
+      ],
     },
     {
       name: 'Artist',
@@ -33,9 +33,9 @@ export default new Router({
           name: 'Album',
           path: ':nameAlbum',
           props: true,
-          component: Album
-        }
-      ]
-    }
-  ]
+          component: Album,
+        },
+      ],
+    },
+  ],
 });
