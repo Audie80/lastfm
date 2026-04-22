@@ -34,7 +34,9 @@ const props = defineProps({
 const searchResults = ref(null);
 
 const url = computed(() => {
-  return `${window.rootUrl}?method=artist.search&artist=${props.inputSearch}&api_key=${window.apiKey}&format=json`;
+  // Encode artist name for URL (espaces, accents, etc.)
+  const encodedArtist = encodeURIComponent(props.inputSearch || '');
+  return `${window.rootUrl}?method=artist.search&artist=${encodedArtist}&api_key=${window.apiKey}&format=json`;
 });
 
 const search = async () => {

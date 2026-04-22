@@ -1,0 +1,100 @@
+{
+  "topalbums": {
+    "album": [
+      {
+        "name": "Abbey Road",
+        "playcount": "3724559",
+        "mbid": "a4a121e1-39b2-4d80-b61a-f6f6e2d00c2d",
+        "url": "https://www.last.fm/music/The+Beatles/Abbey+Road",
+        "artist": {
+          "name": "Beatles",
+          "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+          "url": "https://www.last.fm/music/The+Beatles"
+        },
+        "image": [
+          {
+            "#text": "",
+            "size": "small"
+          },
+          {
+            "#text": "",
+            "size": "medium"
+          },
+          {
+            "#text": "https://lastfm.freetls.fastly.net/i/u/64s/abbey-road.jpg",
+            "size": "large"
+          },
+          {
+            "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/abbey-road.jpg",
+            "size": "extralarge"
+          }
+        ]
+      },
+      {
+        "name": "Let It Be",
+        "playcount": "3412512",
+        "mbid": "b4407a76-3f34-4f5f-92ef-5f4f6c0cbbc1",
+        "url": "https://www.last.fm/music/The+Beatles/Let+It+Be",
+        "artist": {
+          "name": "Beatles",
+          "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+          "url": "https://www.last.fm/music/The+Beatles"
+        },
+        "image": [
+          {
+            "#text": "",
+            "size": "small"
+          },
+          {
+            "#text": "",
+            "size": "medium"
+          },
+          {
+            "#text": "https://lastfm.freetls.fastly.net/i/u/64s/let-it-be.jpg",
+            "size": "large"
+          },
+          {
+            "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/let-it-be.jpg",
+            "size": "extralarge"
+          }
+        ]
+      },
+      {
+        "name": "The White Album",
+        "playcount": "2987654",
+        "mbid": "c4a12345-67ef-8901-2345-67890abcdef1",
+        "url": "https://www.last.fm/music/The+Beatles/The+White+Album",
+        "artist": {
+          "name": "Beatles",
+          "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+          "url": "https://www.last.fm/music/The+Beatles"
+        },
+        "image": [
+          {
+            "#text": "",
+            "size": "small"
+          },
+          {
+            "#text": "",
+            "size": "medium"
+          },
+          {
+            "#text": "https://lastfm.freetls.fastly.net/i/u/64s/white-album.jpg",
+            "size": "large"
+          },
+          {
+            "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/white-album.jpg",
+            "size": "extralarge"
+          }
+        ]
+      }
+    ],
+    "@attr": {
+      "artist": "Beatles",
+      "page": "1",
+      "perPage": "50",
+      "totalPages": "1",
+      "total": "3"
+    }
+  }
+}

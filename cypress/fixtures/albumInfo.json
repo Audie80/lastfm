@@ -1,0 +1,83 @@
+{
+  "album": {
+    "name": "Abbey Road",
+    "artist": "Beatles",
+    "mbid": "a4a121e1-39b2-4d80-b61a-f6f6e2d00c2d",
+    "url": "https://www.last.fm/music/The+Beatles/Abbey+Road",
+    "image": [
+      {
+        "#text": "",
+        "size": "small"
+      },
+      {
+        "#text": "",
+        "size": "medium"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/abbey-road.jpg",
+        "size": "large"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/abbey-road.jpg",
+        "size": "extralarge"
+      }
+    ],
+    "listeners": "2834502",
+    "playcount": "72145632",
+    "tracks": {
+      "track": [
+        {
+          "name": "Come Together",
+          "url": "https://www.last.fm/music/The+Beatles/_/Come+Together",
+          "duration": "259",
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Beatles",
+            "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+            "url": "https://www.last.fm/music/The+Beatles"
+          },
+          "@attr": {
+            "rank": "1"
+          }
+        },
+        {
+          "name": "Something",
+          "url": "https://www.last.fm/music/The+Beatles/_/Something",
+          "duration": "183",
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Beatles",
+            "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+            "url": "https://www.last.fm/music/The+Beatles"
+          },
+          "@attr": {
+            "rank": "2"
+          }
+        },
+        {
+          "name": "Maxwell's Silver Hammer",
+          "url": "https://www.last.fm/music/The+Beatles/_/Maxwell%27s+Silver+Hammer",
+          "duration": "207",
+          "streamable": {
+            "#text": "0",
+            "fulltrack": "0"
+          },
+          "artist": {
+            "name": "Beatles",
+            "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+            "url": "https://www.last.fm/music/The+Beatles"
+          },
+          "@attr": {
+            "rank": "3"
+          }
+        }
+      ]
+    }
+  }
+}
