@@ -1,82 +1,97 @@
 <template>
-    <div class="container mt-2">
-        <div class="row justify-content-center">
-            <h2 class="text-light text-center">{{ searchAlbumResults.name }}</h2>
-        </div>
-        <div class="row justify-content-center"
-         v-if="!searchVideoYouTube" >
-            <img :src="searchAlbumResults.image[3]['#text']" alt="...">
-        </div>
-        <div class="row justify-content-center"
-         v-else >
-            <iframe width="560" height="315" :src="`https://www.youtube.com/embed/${searchVideoYouTube}?autoplay=1`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="row justify-content-center mt-2">
-            <ul class="list-group">
-                <li class="list-group-item m-1 p-0 pr-3"
-                 v-for="(track, index) of tabTracks" :key="index" >
-                    <!-- <img style="cursor=wait" src="https://upload.wikimedia.org/wikipedia/commons/6/67/Play_icon.png" @click="trackName = track.name; videoYouTube();" > -->
-                    <button class="btn" @click="trackName = track.name; videoYouTube();" ><img class="play-icon" src="../assets/play_icon.png"></button>
-                    {{ track.name }}
-                </li>
-            </ul>
-        </div>
+  <div class="container mt-2">
+    <div class="row justify-content-center">
+      <h2 class="text-light text-center">{{ searchAlbumResults?.name }}</h2>
     </div>
+    <div class="row justify-content-center" v-if="!searchVideoYouTube">
+      <img :src="searchAlbumResults?.image?.[3]?.['#text']" alt="...">
+    </div>
+    <div class="row justify-content-center" v-else>
+      <iframe 
+        width="560" 
+        height="315" 
+        :src="`https://www.youtube.com/embed/${searchVideoYouTube}?autoplay=1`" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="row justify-content-center mt-2">
+      <ul class="list-group">
+        <li 
+          class="list-group-item m-1 p-0 pe-3"
+          v-for="(track, index) of tabTracks" 
+          :key="index"
+        >
+          <button 
+            class="btn" 
+            @click="playVideo(track.name)"
+          >
+            <img class="play-icon" src="../assets/play_icon.png">
+          </button>
+          {{ track.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
-<script>
-    export default {
-        name: 'Album',
-        props: {
-            mbidAlbum: String,
-            artistName: String
-        },
-        data: function () {
-            return {
-                searchAlbumResults: null,
-                searchVideoYouTube: null,
-                trackName: null
-            }
-        },
-        computed: {
-            urlAlbum: function () {
-                return `${rootUrl}?method=album.getinfo&api_key=${apiKey}&mbid=${this.mbidAlbum}&format=json&lang=fr`
-            },
-            tabTracks: function () {
-                return this.searchAlbumResults.tracks.track
-            },
-            urlVideoYouTube: function () {
-                return `${rootUrlYouTube}/search?part=snippet&maxResults=5&order=relevance&q=${this.artistName}+${this.trackName}&relevanceLanguage=fr&type=video&videoDefinition=any&videoEmbeddable=true&videoSyndicated=true&videoType=any&key=${apiKeyYouTube}`
-            }
-        },
-        created () {
-            this.getInfosAlbum()
-        },
-        methods: {
-            getInfosAlbum: async function () {
-                try {
-                    let response = await fetch(this.urlAlbum)
-                    let result = await response.json()
-                    this.searchAlbumResults = result.album
-                } catch(err) {
-                    console.log(err)
-                }
-            },
-            videoYouTube: async function () {
-                try {
-                    let response = await fetch(this.urlVideoYouTube)
-                    let result = await response.json()
-                    this.searchVideoYouTube = result.items[0].id.videoId
-                } catch(err) {
-                    console.log(err)
-                }
-            }
-        }
-    }
+<script setup>
+import { ref, computed, onMounted } from 'vue';
+
+const props = defineProps({
+  mbidAlbum: String,
+  artistName: String
+});
+
+const searchAlbumResults = ref(null);
+const searchVideoYouTube = ref(null);
+const trackName = ref(null);
+
+const urlAlbum = computed(() => {
+  return `${window.rootUrl}?method=album.getinfo&api_key=${window.apiKey}&mbid=${props.mbidAlbum}&format=json&lang=fr`;
+});
+
+const tabTracks = computed(() => {
+  return searchAlbumResults.value?.tracks?.track || [];
+});
+
+const urlVideoYouTube = computed(() => {
+  return `${window.rootUrlYouTube}/search?part=snippet&maxResults=5&order=relevance&q=${props.artistName}+${trackName.value}&relevanceLanguage=fr&type=video&videoDefinition=any&videoEmbeddable=true&videoSyndicated=true&videoType=any&key=${window.apiKeyYouTube}`;
+});
+
+const getInfosAlbum = async () => {
+  try {
+    const response = await fetch(urlAlbum.value);
+    const result = await response.json();
+    searchAlbumResults.value = result.album;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const videoYouTube = async () => {
+  try {
+    const response = await fetch(urlVideoYouTube.value);
+    const result = await response.json();
+    searchVideoYouTube.value = result.items[0].id.videoId;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const playVideo = (name) => {
+  trackName.value = name;
+  videoYouTube();
+};
+
+onMounted(() => {
+  getInfosAlbum();
+});
 </script>
 
 <style>
-    .play-icon {
-        width: 3rem;
-    }
+.play-icon {
+  width: 3rem;
+}
 </style>

@@ -12,7 +12,7 @@
           <h5 class="card-title">{{ searchResult.name }}</h5>
           <button
             class="btn btn-primary"
-            @click="$router.push({ name: 'Artist', params: { mbid: searchResult.mbid }})"
+            @click="goToArtist(searchResult.mbid)"
           >Plus d'infos</button>
         </div>
       </div>
@@ -20,45 +20,42 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'SearchResultsArtist',
-  props: {
-    inputSearch: String,
-  },
-  data() {
-    return {
-      searchResults: null,
-    };
-  },
-  computed: {
-    url() {
-      return `${rootUrl}?method=artist.search&artist=${this.inputSearch}&api_key=${apiKey}&format=json`; // ${rootUrl} va chercher directement la variable globale
-    },
-  },
-  methods: {
-    async search() {
-      try {
-        const response = await fetch(this.url);
-        const result = await response.json();
-        this.searchResults = result.results.artistmatches.artist;
-      } catch (err) {
-        console.log(err);
-      }
-    },
-  },
-  created() {
-    this.search();
-  },
-  watch: {
-    // Observe le changement de route : si change de route, réeffectue la recherche
-    $route() {
-      // pour les variables qui commencent par $, attention, les mettre entre quote
-      this.search();
-    }, /* ,
-searchResults: function () {
-this.$emit('sendResult', this.searchResults)
-} */
-  },
+<script setup>
+import { ref, computed, watch, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+
+const router = useRouter();
+const route = useRoute();
+
+const props = defineProps({
+  inputSearch: String,
+});
+
+const searchResults = ref(null);
+
+const url = computed(() => {
+  return `${window.rootUrl}?method=artist.search&artist=${props.inputSearch}&api_key=${window.apiKey}&format=json`;
+});
+
+const search = async () => {
+  try {
+    const response = await fetch(url.value);
+    const result = await response.json();
+    searchResults.value = result.results.artistmatches.artist;
+  } catch (err) {
+    console.log(err);
+  }
 };
+
+const goToArtist = (mbid) => {
+  router.push({ name: 'Artist', params: { mbid } });
+};
+
+onMounted(() => {
+  search();
+});
+
+watch(() => route.path, () => {
+  search();
+});
 </script>
