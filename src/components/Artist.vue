@@ -2,13 +2,13 @@
   <div class="bg-dark p-4">
     <button
       class="btn btn-primary mb-4"
-      @click="$router.push({ name: 'Accueil' })"
+      @click="goHome"
     >Retour à la recherche</button>
     <div class="row mx-auto">
-      <h1 class="text-light px-4">{{ infosArtistResults.name }}</h1>
-      <div class="text-justify text-light px-4" v-html="infosArtistResults.bio.summary"></div>
+      <h1 class="text-light px-4">{{ infosArtistResults?.name }}</h1>
+      <div class="text-justify text-light px-4" v-html="infosArtistResults?.bio?.summary"></div>
     </div>
-    <div class="card-columns mt-4" v-if="$route.name=='Artist'">
+    <div class="card-columns mt-4" v-if="route.name === 'Artist'">
       <div
         class="card px-3 pt-3 bg-light border-secondary text-center shadow-sm rounded"
         v-for="(topAlbumsResult, index) of topAlbumsResults"
@@ -20,63 +20,73 @@
           <h5 class="card-title">{{ topAlbumsResult.name }}</h5>
           <button
             class="btn btn-primary"
-            @click="$router.push({
-                name: 'Album',
-                params: { mbidAlbum: topAlbumsResult.mbid, artistName: infosArtistResults.name }})"
+            @click="goToAlbum(topAlbumsResult.mbid)"
           >Plus d'infos</button>
         </div>
       </div>
     </div>
 
-    <div v-else-if="$route.name=='Album'">
+    <div v-else-if="route.name === 'Album'">
       <router-view />
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Artist',
-  data() {
-    return {
-      infosArtistResults: null,
-      topAlbumsResults: null,
-    };
-  },
-  props: {
-    mbid: String,
-  },
-  computed: {
-    urlArtist() {
-      return `${rootUrl}?method=artist.getinfo&mbid=${this.mbid}&api_key=${apiKey}&format=json&lang=fr`;
-    },
-    urlTopAlbums() {
-      return `${rootUrl}?method=artist.gettopalbums&mbid=${this.mbid}&api_key=${apiKey}&format=json&lang=fr`;
-    },
-  },
-  created() {
-    this.getInfosArtist();
-    this.getTopAlbums();
-  },
-  methods: {
-    async getInfosArtist() {
-      try {
-        const response = await fetch(this.urlArtist);
-        const result = await response.json();
-        this.infosArtistResults = result.artist;
-      } catch (err) {
-        console.log(err);
-      }
-    },
-    async getTopAlbums() {
-      try {
-        const response = await fetch(this.urlTopAlbums);
-        const result = await response.json();
-        this.topAlbumsResults = result.topalbums.album;
-      } catch (err) {
-        console.log(err);
-      }
-    },
-  },
+<script setup>
+import { ref, computed, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+
+const router = useRouter();
+const route = useRoute();
+
+const props = defineProps({
+  mbid: String,
+});
+
+const infosArtistResults = ref(null);
+const topAlbumsResults = ref(null);
+
+const urlArtist = computed(() => {
+  return `${window.rootUrl}?method=artist.getinfo&mbid=${props.mbid}&api_key=${window.apiKey}&format=json&lang=fr`;
+});
+
+const urlTopAlbums = computed(() => {
+  return `${window.rootUrl}?method=artist.gettopalbums&mbid=${props.mbid}&api_key=${window.apiKey}&format=json&lang=fr`;
+});
+
+const getInfosArtist = async () => {
+  try {
+    const response = await fetch(urlArtist.value);
+    const result = await response.json();
+    infosArtistResults.value = result.artist;
+  } catch (err) {
+    console.log(err);
+  }
 };
+
+const getTopAlbums = async () => {
+  try {
+    const response = await fetch(urlTopAlbums.value);
+    const result = await response.json();
+    topAlbumsResults.value = result.topalbums.album;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const goHome = () => {
+  router.push({ name: 'Accueil' });
+};
+
+const goToAlbum = (mbid) => {
+  router.push({
+    name: 'Album',
+    params: { mbidAlbum: mbid, artistName: infosArtistResults.value?.name }
+  });
+};
+
+onMounted(() => {
+  getInfosArtist();
+  getTopAlbums();
+});
 </script>

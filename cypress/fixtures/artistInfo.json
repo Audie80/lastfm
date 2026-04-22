@@ -1,0 +1,39 @@
+{
+  "artist": {
+    "name": "Beatles",
+    "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+    "url": "https://www.last.fm/music/The+Beatles",
+    "image": [
+      {
+        "#text": "",
+        "size": "small"
+      },
+      {
+        "#text": "",
+        "size": "medium"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
+        "size": "large"
+      },
+      {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+        "size": "extralarge"
+      }
+    ],
+    "listeners": "2950620",
+    "playcount": "254000000",
+    "bio": {
+      "links": {
+        "link": {
+          "#text": "Read more on Last.fm",
+          "rel": "all",
+          "href": "https://www.last.fm/music/The+Beatles/+wiki"
+        }
+      },
+      "published": "Fri, 29 Dec 2006 01:00:00 +0000",
+      "summary": "Beatles were an English rock band, formed in Liverpool in 1960. With members John Lennon, Paul McCartney, George Harrison and Ringo Starr, they became widely regarded as the greatest and the most influential music artist of all time.",
+      "content": "Beatles were an English rock band, formed in Liverpool in 1960. With members John Lennon, Paul McCartney, George Harrison and Ringo Starr, they became widely regarded as the greatest and the most influential music artist of all time. Read more on Last.fm. User-contributed text is available under the Creative Commons By-SA License; additional terms may apply."
+    }
+  }
+}

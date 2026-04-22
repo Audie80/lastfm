@@ -1,0 +1,69 @@
+{
+  "results": {
+    "opensearch:Query": {
+      "#text": "Beatles",
+      "startIndex": "0",
+      "count": "30"
+    },
+    "opensearch:totalResults": "100000",
+    "opensearch:startIndex": "0",
+    "opensearch:itemsPerPage": "30",
+    "artistmatches": {
+      "artist": [
+        {
+          "name": "Beatles",
+          "listeners": "2950620",
+          "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+          "url": "https://www.last.fm/music/The+Beatles",
+          "image": [
+            {
+              "#text": "",
+              "size": "small"
+            },
+            {
+              "#text": "",
+              "size": "medium"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png",
+              "size": "large"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png",
+              "size": "extralarge"
+            }
+          ],
+          "streamable": "1"
+        },
+        {
+          "name": "Beatles",
+          "listeners": "125000",
+          "mbid": "test-id-2",
+          "url": "https://www.last.fm/music/Beatles",
+          "image": [
+            {
+              "#text": "",
+              "size": "small"
+            },
+            {
+              "#text": "",
+              "size": "medium"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/64s/placeholder.png",
+              "size": "large"
+            },
+            {
+              "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/placeholder.png",
+              "size": "extralarge"
+            }
+          ],
+          "streamable": "0"
+        }
+      ]
+    },
+    "@attr": {
+      "for": "Beatles"
+    }
+  }
+}

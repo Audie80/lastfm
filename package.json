@@ -4,22 +4,24 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "core-js": "^2.6.5",
-    "jquery": "^3.5.0",
-    "popper.js": "^1.16.0",
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.3"
+    "bootstrap": "^5.3.3",
+    "core-js": "^3.36.1",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-service": "^4.1.2",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.10"
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "cypress": "^13.6.4",
+    "sass": "^1.72.0",
+    "sass-loader": "^14.1.1",
+    "autoprefixer": "^10.4.17"
   },
   "postcss": {
     "plugins": {
@@ -28,6 +30,10 @@
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions"
-  ]
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

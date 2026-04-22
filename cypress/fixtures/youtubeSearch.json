@@ -1,0 +1,44 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "test-etag",
+  "pageInfo": {
+    "totalResults": 1000000,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "test-etag-1",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "dQw4w9WgXcQ"
+      },
+      "snippet": {
+        "publishedAt": "2009-10-25T06:57:33Z",
+        "channelId": "test-channel-1",
+        "title": "Beatles - Come Together",
+        "description": "Music video for Come Together by Beatles",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          }
+        },
+        "channelTitle": "Beatles",
+        "liveBroadcastContent": "none",
+        "publishTime": "2009-10-25T06:57:33Z"
+      }
+    }
+  ]
+}
