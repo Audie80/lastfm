@@ -18,7 +18,7 @@
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "@vitejs/plugin-vue": "^5.0.4",
-    "cypress": "^13.6.4",
+    "cypress": "^15.14.1",
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
     "autoprefixer": "^10.4.17"
