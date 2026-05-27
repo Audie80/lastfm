@@ -19,7 +19,7 @@
     "@vue/cli-service": "^5.0.8",
     "@vitejs/plugin-vue": "^6.0.7",
     "cypress": "^15.15.0",
-    "sass": "^1.72.0",
+    "sass": "^1.100.0",
     "sass-loader": "^16.0.8",
     "autoprefixer": "^10.4.17"
   },
