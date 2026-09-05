@@ -20,7 +20,7 @@
     "@vitejs/plugin-vue": "^6.0.8",
     "cypress": "^15.21.1",
     "sass": "^1.103.1",
-    "sass-loader": "^17.0.0",
+    "sass-loader": "^17.0.1",
     "autoprefixer": "^10.5.4"
   },
   "postcss": {
