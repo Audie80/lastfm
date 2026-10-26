@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import './assets/scss/style.scss';
+import './assets/scss/style.css';
 
 // Variables globales
 window.apiKey = 'ce293d59001221f0545c8848c71d7ec6';
